@@ -1,0 +1,10 @@
+.welcome {
+  color: green;
+  border: 3px solid #fcf111;
+}
+
+.welcome__span {
+  color: black;
+  font-size: 64px;
+}
+/*# sourceMappingURL=App.css.map */
