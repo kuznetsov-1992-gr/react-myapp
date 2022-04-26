@@ -1,10 +1,18 @@
-.welcome {
-  color: green;
-  border: 3px solid #fcf111;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.welcome__span {
-  color: black;
-  font-size: 64px;
+.message__field {
+  margin: 0 auto;
+  width: 800px;
+  height: 800px;
+  background-color: #b6fef9;
+}
+
+.input-field {
+  margin: 0 auto;
+  width: 800px;
+  background-color: blue;
 }
 /*# sourceMappingURL=App.css.map */
