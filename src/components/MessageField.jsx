@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 
 
@@ -13,5 +14,7 @@ function MessageField({messageList}){
                 <p>{messageItem.text}</p> </div> )}
     </div>)
 }
-
+MessageField.propTypes ={
+    messageList: PropTypes.array.isRequired
+}
 export default MessageField;

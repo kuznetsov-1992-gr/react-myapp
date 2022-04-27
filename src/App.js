@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types'
 import MessageField from './components/MessageField'
 import MessageInputField from "./components/MessageInputField";
 
@@ -55,4 +56,8 @@ function App () {
   )
 
 }
+
+
+
+
 export default App;
