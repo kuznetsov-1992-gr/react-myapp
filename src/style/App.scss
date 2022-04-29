@@ -1,9 +1,17 @@
-.welcome{
-    color: green;
-    border: 3px solid #fcf111;
+*{
+    padding: 0;
+    margin: 0;
+}
 
-    &__span{
-        color: black;
-        font-size: 64px;
-    }
+.message__field{
+    margin: 0 auto;
+    width: 800px;
+    height: 800px;
+    background-color: rgb(182, 254, 249);
+}
+.input-field{
+    margin: 0 auto;
+    width: 800px;
+   
+    background-color: blue;
 }
