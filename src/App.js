@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { v4 as uuidv4 } from 'uuid';
-import {Container, Box, Button, Typography,} from '@mui/material/';
+import {Container, Box, Button, Typography, List, ListItem, ListItemText, IconButton} from '@mui/material/';
 import CachedIcon from '@mui/icons-material/Cached';
+import CommentIcon from '@mui/icons-material/Comment';
 
 import MessageField from './components/MessageField'
 import MessageInputField from "./components/MessageInputField";
@@ -41,16 +42,24 @@ function App () {
   }
 
   function genitateValue(bot){
-    let bot_key =Object.keys(bot)[parseInt(Math.random()* Object.keys(bot).length)]
+   
+    
+
+    let bot_key = Object.keys(bot)[parseInt(Math.random()* Object.keys(bot).length)];
+    console.log(bot_key)
+    if(bot_key === 'answer-bot'){
+      bot_key = Object.keys(bot)[parseInt(Math.random()* Object.keys(bot).length)];
+       console.log('duble:', bot_key )
+    }
     
     let bot_value = bot[bot_key][parseInt(Math.random() * bot[bot_key].length)];
 
   setGreatPeople({author: bot_key, text: bot_value, id: uuidv4()})
   
 
-  // console.log(bot_key)
+ 
   // console.log(bot_value)
-  console.log(greatPeople)
+  // console.log(greatPeople)
   }
 
 
@@ -91,10 +100,25 @@ function App () {
   
   
   return (
-    <>
-     
+    <Container sx={{display: 'flex'}}>
+      <List>
+        
+        {Object.keys(bot).map( item => (
+            <ListItem
+            key={uuidv4()}
+            disableGutters
+            secondaryAction={
+              <IconButton aria-label="comment">
+                <CommentIcon />
+              </IconButton>
+            }
+          >
+            <ListItemText primary={item} />
+          </ListItem>
+        ))}
+      </List>
 
-      <Container sx={{width: '800px'}}>
+      <Container sx={{width: '800px', margin: 0}}>
         < Box sx={{display: 'flex', justifyContent: 'space-between '}}>
         <Typography gutterBottom variant="h5" component="div">
           Lizard
@@ -114,7 +138,7 @@ function App () {
           toggleToValue={toggleToValue}
             />
       </Container>      
-    </>
+    </Container>
   )
 
 }
