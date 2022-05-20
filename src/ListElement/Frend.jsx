@@ -3,11 +3,12 @@ import {Container, Box, Button, Typography, List, ListItem, ListItemText, IconBu
 import CachedIcon from '@mui/icons-material/Cached';
 import MessageInputField from "../components/MessageInputField";
 import MessageField from "../components/MessageField";
+import Count from "../components/Count";
 
 function Frend (){
 
     return(
-       <div>FREND</div>
+       <div><Count/></div>
     )
 }
 
