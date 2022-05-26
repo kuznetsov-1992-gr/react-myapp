@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 
@@ -7,9 +7,10 @@ import  Profile from '../src/ListElement/Profile'
 import ErrorElement from "./ListElement/ErrorElement";
 import Loyout from "./ListElement/Loyout";
 import BotAnswer from "./components/BotAnswer";
-import Frend from "./ListElement/Frend";
+
 
 import'../src/style/App.css';
+import Chat from "./ListElement/Chat";
 
 
 
@@ -21,7 +22,7 @@ function App () {
       <Route index path="/" element={<Home/>} />
       <Route path="profile" element={ <Profile/>} />
       <Route path="bot" element={<BotAnswer/>} />
-      <Route path="frend" element={<Frend/>}/>
+      <Route path={`/chat/:idd`} element={<Chat/>}/>
       <Route path="*" element={<ErrorElement/>}/>
 
       </Route>
