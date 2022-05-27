@@ -23,7 +23,7 @@ const  Chat = () => {
     const chatsState = useSelector(state => state.users.users);
     
     const [userName] = chatsState.filter(chat => chat.id === +idd);
-    console.log(userName)
+    
 
     const messagesChat = messageState.filter(messages => {
         if(!idd) return true;
@@ -39,7 +39,7 @@ const  Chat = () => {
         text: value
         
     }
-        dispatch({type: ADD_MESSAGE, payload: obj})
+        dispatch({type: ADD_MESSAGE, payload: obj, })
     }
     
     // console.log(chatMessage.message)
