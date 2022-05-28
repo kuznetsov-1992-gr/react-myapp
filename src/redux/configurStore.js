@@ -3,7 +3,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { messageReducer } from "./reducers/messageReducer";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
-import logger, { createLogger } from "redux-logger";
+import  { createLogger } from "redux-logger";
 
 
 import { userReducer } from "./reducers/userReducer";
@@ -11,16 +11,35 @@ import persistStore from "redux-persist/es/persistStore";
 
 const time = store => next => action =>{
     const delay = action?.meta?.delay;
-    if(!delay){
+        if(!delay){
         return next(action)
     }
 
+     
     const timeOut= setTimeout(()=>next(action),delay);
 
     return () => {
         clearTimeout(timeOut)
     }
+
+    
 }
+
+
+const logger = createLogger(time())
+
+// const time = store => next => action =>{
+//     const delay = action?.meta?.delay;
+//     if(!delay){
+//         return next(action)
+//     }
+
+//     const timeOut= setTimeout(()=>next(action),delay);
+
+//     return () => {
+//         clearTimeout(timeOut)
+//     }
+// }
 
 
 
@@ -41,7 +60,7 @@ const rootReducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 
-export const store = createStore(persistedReducer,  applyMiddleware(time), )
+export const store = createStore(persistedReducer,  applyMiddleware(logger), )
 // composeWithDevTools()
 export const persist = persistStore(store)
 
