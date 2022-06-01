@@ -4,10 +4,13 @@ import { messageReducer } from "./reducers/messageReducer";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
 import  { createLogger } from "redux-logger";
+import thunk from "redux-thunk";
 
 
 import { userReducer } from "./reducers/userReducer";
 import persistStore from "redux-persist/es/persistStore";
+import { todosReducer } from "./reducers/todosReducer";
+import { photosReducer } from "./reducers/photosReducer";
 
 const time = store => next => action =>{
     const delay = action?.meta?.delay;
@@ -54,13 +57,15 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     users: userReducer,
-    messages: messageReducer
+    messages: messageReducer,
+    todos: todosReducer,
+    photos: photosReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 
-export const store = createStore(persistedReducer,  applyMiddleware(logger), )
+export const store = createStore(persistedReducer,  applyMiddleware(thunk, logger), )
 // composeWithDevTools()
 export const persist = persistStore(store)
 

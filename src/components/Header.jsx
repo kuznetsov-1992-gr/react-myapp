@@ -17,6 +17,8 @@ function Header (){
         <div style={styles}>
             <NavLink style={styles} to='/'>Home</NavLink>
             <NavLink style={styles} to='/profile'>Profile</NavLink>
+            <NavLink style={styles} to='/api'>API</NavLink>
+            <NavLink style={styles} to='/photos'>Photos</NavLink>
             
         </div>
     )

@@ -6,6 +6,9 @@ import Home from '../src/ListElement/Home';
 import  Profile from '../src/ListElement/Profile'
 import ErrorElement from "./ListElement/ErrorElement";
 import Loyout from "./ListElement/Loyout";
+import ProbeApi from "./ListElement/ProbeApi";
+import PhotosApi from "./ListElement/PhotosApi";
+
 import BotAnswer from "./components/BotAnswer";
 
 
@@ -19,11 +22,13 @@ function App () {
   return (
     <Routes>
       <Route path="/" element={<Loyout/>}>
-      <Route index path="/" element={<Home/>} />
-      <Route path="profile" element={ <Profile/>} />
-      <Route path="bot" element={<BotAnswer/>} />
-      <Route path={`/chat/:idd`} element={<Chat/>}/>
-      <Route path="*" element={<ErrorElement/>}/>
+        <Route index path="/" element={<Home/>} />
+        <Route path="profile" element={ <Profile/>} />
+        <Route path="/api" element={<ProbeApi/>}/>
+        <Route path="/photos"element={<PhotosApi/>}/>
+        <Route path="bot" element={<BotAnswer/>} />
+        <Route path={`/chat/:idd`} element={<Chat/>}/>
+        <Route path="*" element={<ErrorElement/>}/>
 
       </Route>
     </Routes> 
