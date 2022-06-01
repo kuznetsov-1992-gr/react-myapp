@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Box } from "@mui/material";
 
 
 
@@ -7,12 +8,12 @@ import PropTypes from "prop-types";
 function MessageField({messageList}){
 
     return( 
-    <div className="message__field">
+    <Box  sx={{ bgcolor: '#cfe8fc', height: '80vh' }}>
         {messageList.map(messageItem =>
              <div key={messageItem.id}>
                 <h3>{messageItem.author}</h3>
                 <p>{messageItem.text}</p> </div> )}
-    </div>)
+    </Box>)
 }
 MessageField.propTypes ={
     messageList: PropTypes.array.isRequired
